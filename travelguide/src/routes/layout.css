@@ -1,3 +1,46 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@theme {
+  --color-terracotta-50: #fef6f5;
+  --color-terracotta-100: #feece9;
+  --color-terracotta-200: #fcd9d4;
+  --color-terracotta-300: #f8b8b0;
+  --color-terracotta-400: #f38a7c;
+  --color-terracotta-500: #e85a49;
+  --color-terracotta-600: #d63d2b;
+  --color-terracotta-700: #b32e1e;
+  --color-terracotta-800: #95291c;
+  --color-terracotta-900: #7b271b;
+
+  --color-cream-50: #fdfbf7;
+  --color-cream-100: #fcf8f2;
+  --color-cream-200: #f7ede1;
+  --color-cream-300: #efdfca;
+  --color-cream-400: #e3cba8;
+  --color-cream-500: #d5b385;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-cream-50 text-slate-800 font-sans antialiased selection:bg-terracotta-200 selection:text-terracotta-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

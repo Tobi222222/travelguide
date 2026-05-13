@@ -21,8 +21,8 @@
 </script>
 
 {#if places.length > 0}
-<section class="py-6">
-    <div class="px-4 sm:px-6 mb-4 flex justify-between items-end">
+<section class="py-6 max-w-7xl mx-auto w-full">
+    <div class="px-4 sm:px-6 lg:px-12 mb-4 flex justify-between items-end">
         <div>
             <h2 class="font-display text-2xl font-semibold text-slate-800">{title}</h2>
             {#if subtitle}
@@ -35,7 +35,7 @@
     </div>
 
     <div class="w-full overflow-x-auto no-scrollbar pb-4">
-        <div class="flex gap-4 px-4 sm:px-6 w-max">
+        <div class="flex gap-4 px-4 sm:px-6 lg:px-12 w-max">
             {#each places as place}
                 <div class="w-[280px] sm:w-[320px] snap-center">
                     <PlaceCard 

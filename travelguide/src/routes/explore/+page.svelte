@@ -13,7 +13,10 @@
         { id: 'beach', label: 'Beaches' },
         { id: 'rooftop', label: 'Rooftops' },
         { id: 'hidden-gem', label: 'Hidden Gems' },
-        { id: 'nightlife', label: 'Nightlife' }
+        { id: 'nightlife', label: 'Nightlife' },
+        { id: 'market', label: 'Markets' },
+        { id: 'viewpoint', label: 'Viewpoints' },
+        { id: 'romantic', label: 'Romantic' }
     ];
 
     let searchQuery = $state('');
@@ -29,28 +32,30 @@
     );
 </script>
 
-<div class="min-h-screen bg-cream-50 pt-6 pb-12 flex flex-col" in:fade={{duration: 300}}>
-    <div class="px-4 sm:px-6 mb-6">
-        <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-800 mb-6">Explore</h1>
-        
-        <div class="sticky top-4 z-30">
+<div class="min-h-screen bg-cream-50 pt-6 pb-24 flex flex-col" in:fade={{duration: 500}}>
+    <!-- Sticky Header Area -->
+    <div class="sticky top-[72px] md:top-[80px] z-40 bg-cream-50/80 backdrop-blur-xl pt-2 pb-4">
+        <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-12">
+            <h1 class="text-4xl sm:text-5xl font-display font-bold text-navy-900 mb-6 drop-shadow-sm">Explore</h1>
             <SearchBar bind:value={searchQuery} />
+        </div>
+        <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-12">
+            <FilterChips {categories} bind:selectedCategory />
         </div>
     </div>
 
-    <div class="mb-6 sticky top-[5rem] z-20 bg-cream-50/95 backdrop-blur-md pb-2">
-        <FilterChips {categories} bind:selectedCategory />
-    </div>
-
-    <div class="flex-1 px-4 sm:px-6">
+    <!-- Grid Area -->
+    <div class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-12 mt-4">
         {#if filteredPlaces.length === 0}
-            <div class="text-center py-20">
-                <p class="text-slate-500 text-lg">No places found. Try a different search.</p>
+            <div class="flex flex-col items-center justify-center text-center py-20" in:fade>
+                <div class="w-16 h-16 bg-cream-200 rounded-full flex items-center justify-center mb-4 text-3xl">🏜️</div>
+                <h3 class="text-xl font-display font-bold text-navy-900 mb-2">No Oasis Found</h3>
+                <p class="text-slate-500 font-medium">Try a different search term or category.</p>
             </div>
         {:else}
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 pb-10">
                 {#each filteredPlaces as place (place.id)}
-                    <div in:fade={{ duration: 200 }}>
+                    <div in:fade={{ duration: 400 }}>
                         <PlaceCard {place} />
                     </div>
                 {/each}

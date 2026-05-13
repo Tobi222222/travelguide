@@ -12,12 +12,12 @@
 </script>
 
 <div class="min-h-screen bg-cream-50 pt-8 pb-12 flex flex-col" in:fade={{duration: 300}}>
-    <div class="px-4 sm:px-6 mb-8">
+    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-12 mb-8">
         <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-800 mb-2">Saved Spots</h1>
         <p class="text-slate-500 font-medium text-lg">Your personal Barcelona collection.</p>
     </div>
 
-    <div class="flex-1 px-4 sm:px-6">
+    <div class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-12">
         {#if savedPlaces.length === 0}
             <div class="text-center py-20 bg-white rounded-3xl border border-cream-200 shadow-sm mx-auto max-w-sm">
                 <div class="w-16 h-16 bg-terracotta-50 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -32,7 +32,7 @@
                 </a>
             </div>
         {:else}
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-20">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-20">
                 {#each savedPlaces as place (place.id)}
                     <div in:fade={{ duration: 200 }}>
                         <PlaceCard {place} />

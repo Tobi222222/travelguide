@@ -11,7 +11,7 @@
     ];
 </script>
 
-<div class="fixed bottom-0 left-0 z-50 w-full bg-white/90 backdrop-blur-md border-t border-cream-200 pb-safe shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.05)]">
+<div class="fixed bottom-0 left-0 z-50 w-full bg-white/90 backdrop-blur-md border-t border-cream-200 pb-safe shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.05)] md:hidden">
     <div class="max-w-md mx-auto px-6 h-20 flex justify-between items-center">
         {#each navItems as item}
             {@const isActive = page.url.pathname.startsWith(item.path)}

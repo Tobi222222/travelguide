@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { Place } from '$lib/data/mockData';
     import FavoriteButton from './FavoriteButton.svelte';
-    import { MapPin, Star, Sparkles } from 'lucide-svelte';
+    import { MapPin, Star, Sparkles, TrendingUp } from 'lucide-svelte';
 
     let { 
         place, 
@@ -10,57 +10,90 @@
         place: Place;
         matchPercentage?: number | null;
     }>();
+
+    let currentSrc = $state(place.image);
+    let imageLoaded = $state(false);
+    let imageError = $state(false);
+
+    function handleError() {
+        if (currentSrc === place.image && place.fallbackSrc) {
+            currentSrc = place.fallbackSrc;
+        } else {
+            imageError = true;
+        }
+    }
 </script>
 
-<a href="/place/{place.id}" class="group block relative rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-400 overflow-hidden">
-    <!-- Image Area -->
-    <div class="relative h-48 sm:h-56 w-full overflow-hidden">
-        <img 
-            src={place.image} 
-            alt={place.title} 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            loading="lazy"
-        />
-        <!-- Gradient Overlay for better text readability if needed -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 opacity-60"></div>
+<a href="/place/{place.id}" class="group block relative w-full rounded-3xl bg-cream-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden active:scale-[0.98] transform-gpu">
+    <!-- Cinematic Image Area -->
+    <div class="relative aspect-[3/4] md:aspect-[4/5] lg:aspect-[1/1] xl:aspect-[4/5] w-full bg-slate-200">
+        <!-- Skeleton Loader -->
+        {#if !imageLoaded && !imageError}
+            <div class="absolute inset-0 animate-pulse bg-gradient-to-tr from-cream-200 to-cream-100"></div>
+        {/if}
         
-        <!-- Top Tags -->
-        <div class="absolute top-3 left-3 right-3 flex justify-between items-start">
-            {#if matchPercentage}
-                <div class="bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1.5 transform transition-transform group-hover:-translate-y-0.5">
-                    <Sparkles size={14} class="text-terracotta-500" />
-                    <span class="text-xs font-semibold text-terracotta-600">{matchPercentage}% Match</span>
-                </div>
-            {:else}
-                <div class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
-                    <Star size={14} class="fill-amber-400 text-amber-400" />
-                    <span class="text-xs font-semibold text-slate-700">{place.localScore.toFixed(1)}</span>
-                </div>
-            {/if}
-            <FavoriteButton placeId={place.id} />
-        </div>
-    </div>
+        <!-- Fallback Gradient if Image Fails -->
+        {#if imageError}
+            <div class="absolute inset-0 bg-gradient-to-br from-terracotta-200 to-cream-300"></div>
+        {:else}
+            <img 
+                src={currentSrc} 
+                alt={place.title} 
+                class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-out group-hover:scale-110 {imageLoaded ? 'opacity-100' : 'opacity-0'}"
+                loading="lazy"
+                onload={() => imageLoaded = true}
+                onerror={handleError}
+            />
+        {/if}
 
-    <!-- Content Area -->
-    <div class="p-4 sm:p-5">
-        <div class="flex justify-between items-start mb-1">
-            <h3 class="font-display font-semibold text-lg text-slate-800 leading-tight group-hover:text-terracotta-600 transition-colors">
+        <!-- Gradient Overlays for contrast -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 transition-opacity duration-500 group-hover:opacity-90"></div>
+        
+        <!-- Top Floating Badges -->
+        <div class="absolute top-4 left-4 right-4 flex justify-between items-start z-10">
+            <div class="flex flex-col gap-2">
+                {#if matchPercentage}
+                    <div class="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 transform transition-transform group-hover:-translate-y-0.5">
+                        <Sparkles size={14} class="text-terracotta-500" />
+                        <span class="text-xs font-semibold text-terracotta-700">{matchPercentage}% Match</span>
+                    </div>
+                {:else if place.trending}
+                    <div class="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 transform transition-transform group-hover:-translate-y-0.5">
+                        <TrendingUp size={14} class="text-rose-500" />
+                        <span class="text-xs font-semibold text-rose-600">Trending</span>
+                    </div>
+                {:else}
+                    <div class="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
+                        <Star size={14} class="fill-amber-400 text-amber-400" />
+                        <span class="text-xs font-bold text-slate-800">{place.localScore.toFixed(1)}</span>
+                    </div>
+                {/if}
+            </div>
+            
+            <FavoriteButton placeId={place.id} class="shadow-lg backdrop-blur-md bg-white/20 hover:bg-white/90 text-white hover:text-slate-800" />
+        </div>
+
+        <!-- Bottom Content inside Image -->
+        <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10 transform transition-transform duration-500">
+            <div class="flex items-center gap-1.5 text-cream-100 mb-2 text-xs sm:text-sm font-medium tracking-wide uppercase">
+                <MapPin size={14} />
+                <span>{place.category.replace('-', ' ')}</span>
+                <span class="opacity-50 mx-1">•</span>
+                <span>{place.priceLevel}</span>
+            </div>
+            
+            <h3 class="font-display font-bold text-2xl sm:text-3xl text-white leading-tight mb-3 drop-shadow-md">
                 {place.title}
             </h3>
-            <span class="text-slate-500 text-sm font-medium ml-2 shrink-0">{place.priceLevel}</span>
-        </div>
-        
-        <div class="flex items-center gap-1 text-slate-500 mb-3 text-sm">
-            <MapPin size={14} />
-            <span class="capitalize">{place.category.replace('-', ' ')}</span>
-        </div>
 
-        <div class="flex flex-wrap gap-2">
-            {#each place.tags.slice(0, 3) as tag}
-                <span class="px-2.5 py-1 bg-cream-100 text-slate-600 text-xs rounded-lg font-medium">
-                    {tag}
-                </span>
-            {/each}
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2">
+                {#each place.tags.slice(0, 3) as tag}
+                    <span class="px-3 py-1 bg-white/20 backdrop-blur-md text-white border border-white/10 text-xs rounded-xl font-medium shadow-sm transition-colors group-hover:bg-white/30">
+                        {tag}
+                    </span>
+                {/each}
+            </div>
         </div>
     </div>
 </a>

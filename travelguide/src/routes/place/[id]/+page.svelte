@@ -2,6 +2,7 @@
     import { page } from '$app/state';
     import { mockPlaces, getMatchPercentage } from '$lib/data/mockData';
     import FavoriteButton from '$lib/components/FavoriteButton.svelte';
+    import ProgressiveImage from '$lib/components/ProgressiveImage.svelte';
     import { getUserState } from '$lib/state/userStore.svelte';
     import { ChevronLeft, MapPin, Clock, CircleDollarSign, Sparkles, VolumeX, Flame } from 'lucide-svelte';
     import { fade, fly } from 'svelte/transition';
@@ -12,29 +13,22 @@
     const userState = getUserState();
     let profile = $derived(userState?.userProfile || '');
     let matchPercentage = $derived(place ? getMatchPercentage(place, profile) : 0);
-    let imageLoaded = $state(false);
-    let currentSrc = $derived(place ? place.image : '');
-    let imgError = $state(false);
-
-    function handleImgError() {
-        if (!imgError && place?.fallbackSrc) {
-            imgError = true;
-        }
-    }
 </script>
 
 {#if place}
 <div class="min-h-screen bg-cream-50 pb-24" in:fade={{duration: 500}}>
     <!-- Cinematic Edge-to-Edge Hero Image Area -->
     <div class="relative h-[45vh] md:h-[55vh] lg:h-[60vh] w-full bg-navy-900 rounded-b-[2.5rem] shadow-xl overflow-hidden">
-        <img 
-            src={imgError && place.fallbackSrc ? place.fallbackSrc : place.image} 
+        <ProgressiveImage 
+            src={place.image} 
             alt={place.title} 
-            class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 {imageLoaded ? 'opacity-100' : 'opacity-0'}"
-            onload={() => imageLoaded = true}
-            onerror={handleImgError}
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-navy-900/90"></div>
+            fallbackSrc={place.fallbackSrc}
+            priority={true}
+            aspectRatio="h-full"
+            className="absolute inset-0 w-full h-full"
+        >
+            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-navy-900/90"></div>
+        </ProgressiveImage>
         
         <!-- Sticky Top Nav -->
         <div class="absolute top-0 left-0 right-0 p-4 md:p-6 pt-safe flex justify-between items-start z-30 transition-all duration-300 max-w-5xl mx-auto w-full">

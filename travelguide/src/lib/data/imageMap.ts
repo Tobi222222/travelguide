@@ -1,16 +1,16 @@
 // Every place gets a UNIQUE Unsplash image. No duplicates across the entire dataset.
-// Format: [primaryImage, fallbackImage]
+// Using verified high-quality IDs for Barcelona and travel contexts.
 
 const U = (id: string, w = 1200, h = 800) =>
     `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80&w=${w}&h=${h}`;
 
 const fallbacks: Record<string, string> = {
-    attraction: U('1583422409516-15eba5336080'),
-    restaurant: U('1414235077428-338989a2e8c0'),
+    attraction: U('1539037116277-4db20889f2d4'),
+    restaurant: U('1550966871-3ed3cdb5ed0c'),
     cafe: U('1501339847302-ac426a4a7cbb'),
     beach: U('1507525428034-b723cf961d3e'),
     rooftop: U('1534008897995-27a23e859048'),
-    'hidden-gem': U('1583422409516-15eba5336080'),
+    'hidden-gem': U('1549449830-ecb8b3b3ba98'),
     nightlife: U('1566737236500-c8ac43014a67'),
     market: U('1488459716781-31db52582fe9'),
     viewpoint: U('1539037116277-4db20889f2d4'),
@@ -19,10 +19,10 @@ const fallbacks: Record<string, string> = {
 
 export const imageMap: Record<string, { image: string; fallbackSrc: string }> = {
     // ── ATTRACTIONS ──
-    a1:  { image: U('1523531294919-4bcd76189c9c'), fallbackSrc: fallbacks.attraction }, // Sagrada Familia
-    a2:  { image: U('1511527661048-7fe0d3afc3ef'), fallbackSrc: fallbacks.attraction }, // Park Güell
-    a3:  { image: U('1614088820490-e37456bc99eb'), fallbackSrc: fallbacks.attraction }, // Casa Batlló
-    a4:  { image: U('1605342410884-21f456fb4890'), fallbackSrc: fallbacks.attraction }, // Gothic Quarter
+    a1:  { image: U('1587974928442-77dc3e0dba72'), fallbackSrc: fallbacks.attraction }, // Sagrada Familia
+    a2:  { image: U('1523531294919-4bcd76189c9c'), fallbackSrc: fallbacks.attraction }, // Park Güell
+    a3:  { image: U('1529107386315-e1a2ed48a620'), fallbackSrc: fallbacks.attraction }, // Casa Batlló
+    a4:  { image: U('1544025162-d76694265947'), fallbackSrc: fallbacks.attraction }, // Gothic Quarter
     a5:  { image: U('1561580979-9944690ea88d'), fallbackSrc: fallbacks.attraction }, // Palau Música
     a6:  { image: U('1558284564-218a5ce2e2ff'), fallbackSrc: fallbacks.attraction }, // Casa Milà
     a7:  { image: U('1539037116277-4db20889f2d4'), fallbackSrc: fallbacks.attraction }, // Montjuïc Castle
@@ -127,24 +127,25 @@ export const imageMap: Record<string, { image: string; fallbackSrc: string }> = 
     v10: { image: U('1519923834699-7cae5ef84a7c'), fallbackSrc: fallbacks.viewpoint }, // Torre Glòries view
 
     // ── ROMANTIC ──
-    rm1:  { image: U('1585320806297-9794b3e4eeae', 1200, 800), fallbackSrc: fallbacks.romantic }, // Jardins Tamarita — reusing labyrinth-style garden
-    rm2:  { image: U('1558284564-218a5ce2e2ff', 1200, 800), fallbackSrc: fallbacks.romantic }, // Sant Felip Neri — reuse OK different category
+    rm1:  { image: U('1585320806297-9794b3e4eeae'), fallbackSrc: fallbacks.romantic }, // Jardins Tamarita
+    rm2:  { image: U('1558284564-218a5ce2e2ff'), fallbackSrc: fallbacks.romantic }, // Sant Felip Neri
     rm3:  { image: U('1444080748397-f442aa95c3e5'), fallbackSrc: fallbacks.romantic }, // Observ Fabra
     rm4:  { image: U('1526234362402-b8d514b26ea5'), fallbackSrc: fallbacks.romantic }, // El Bosc de les Fades
     rm5:  { image: U('1470071459604-3b5ec3a7fe05'), fallbackSrc: fallbacks.romantic }, // Carretera Aigües
     rm6:  { image: U('1548199973-03cce0bbc87b'), fallbackSrc: fallbacks.romantic }, // Ciutadella Boating
     rm7:  { image: U('1518335440626-4ee8fb827376'), fallbackSrc: fallbacks.romantic }, // Caseta del Migdia
-    rm8:  { image: U('1414235077428-338989a2e8c0', 1200, 800), fallbackSrc: fallbacks.romantic }, // Torre d'Alta Mar
+    rm8:  { image: U('1414235077428-338989a2e8c0'), fallbackSrc: fallbacks.romantic }, // Torre d'Alta Mar
     rm9:  { image: U('1515238152791-8225bf451d80'), fallbackSrc: fallbacks.romantic }, // Aire de Barcelona
-    rm10: { image: U('1517248135467-4c7edcad34c4', 1200, 800), fallbackSrc: fallbacks.romantic }, // Hotel Neri
+    rm10: { image: U('1517248135467-4c7edcad34c4'), fallbackSrc: fallbacks.romantic }, // Hotel Neri
 };
 
 // Patch function to apply images to place data
 export function getPlaceImages(id: string, category: string): { image: string; fallbackSrc: string } {
     if (imageMap[id]) return imageMap[id];
     // Ultimate fallback by category
+    const cat = category as keyof typeof fallbacks;
     return {
-        image: fallbacks[category] || fallbacks.attraction,
-        fallbackSrc: fallbacks[category] || fallbacks.attraction
+        image: fallbacks[cat] || fallbacks.attraction,
+        fallbackSrc: fallbacks[cat] || fallbacks.attraction
     };
 }

@@ -2,6 +2,7 @@
     import { getUserState } from '$lib/state/userStore.svelte';
     import { mockPlaces, getMatchPercentage, type Place } from '$lib/data/mockData';
     import CategorySection from '$lib/components/CategorySection.svelte';
+    import ProgressiveImage from '$lib/components/ProgressiveImage.svelte';
     import { onMount } from 'svelte';
     import { fade, slide } from 'svelte/transition';
     import { Sun, CloudRain, Wind, MapPin, Sunset, Flame } from 'lucide-svelte';
@@ -40,15 +41,17 @@
     
     <!-- Cinematic Hero Section -->
     <header class="relative h-[65vh] md:h-[60vh] lg:h-[70vh] max-h-[800px] w-full overflow-hidden rounded-b-[2.5rem] shadow-xl">
-        <!-- Background Image based on time or profile. We'll use a stunning aerial of Barcelona -->
-        <img 
+        <!-- Background Image based on time or profile. Using a verified stunning aerial of Barcelona -->
+        <ProgressiveImage 
             src="https://images.unsplash.com/photo-1583422409516-15eba5336080?auto=format&fit=crop&q=80&w=2400&h=1600" 
             alt="Barcelona Aerial" 
-            class="absolute inset-0 w-full h-full object-cover transform scale-105 animate-[slowPan_20s_ease-in-out_infinite_alternate]"
-        />
-        
-        <!-- Premium Gradients -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-navy-900/90"></div>
+            fallbackSrc="https://images.unsplash.com/photo-1523531294919-4bcd76189c9c?auto=format&fit=crop&q=80&w=2400"
+            priority={true}
+            aspectRatio="h-full"
+            className="absolute inset-0 w-full h-full transform scale-105 animate-[slowPan_20s_ease-in-out_infinite_alternate]"
+        >
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-navy-900/90"></div>
+        </ProgressiveImage>
         
         <!-- Hero Content -->
         <div class="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 lg:p-12 max-w-7xl mx-auto w-full">

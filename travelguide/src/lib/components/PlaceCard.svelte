@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { Place } from '$lib/data/mockData';
+    import ProgressiveImage from './ProgressiveImage.svelte';
     import FavoriteButton from './FavoriteButton.svelte';
     import { MapPin, Star, Sparkles, TrendingUp } from 'lucide-svelte';
 
@@ -10,45 +11,20 @@
         place: Place;
         matchPercentage?: number | null;
     }>();
-
-    let currentSrc = $state(place.image);
-    let imageLoaded = $state(false);
-    let imageError = $state(false);
-
-    function handleError() {
-        if (currentSrc === place.image && place.fallbackSrc) {
-            currentSrc = place.fallbackSrc;
-        } else {
-            imageError = true;
-        }
-    }
 </script>
 
 <a href="/place/{place.id}" class="group block relative w-full rounded-3xl bg-cream-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden active:scale-[0.98] transform-gpu">
     <!-- Cinematic Image Area -->
-    <div class="relative aspect-[3/4] md:aspect-[4/5] lg:aspect-[1/1] xl:aspect-[4/5] w-full bg-slate-200">
-        <!-- Skeleton Loader -->
-        {#if !imageLoaded && !imageError}
-            <div class="absolute inset-0 animate-pulse bg-gradient-to-tr from-cream-200 to-cream-100"></div>
-        {/if}
-        
-        <!-- Fallback Gradient if Image Fails -->
-        {#if imageError}
-            <div class="absolute inset-0 bg-gradient-to-br from-terracotta-200 to-cream-300"></div>
-        {:else}
-            <img 
-                src={currentSrc} 
-                alt={place.title} 
-                class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-out group-hover:scale-110 {imageLoaded ? 'opacity-100' : 'opacity-0'}"
-                loading="lazy"
-                onload={() => imageLoaded = true}
-                onerror={handleError}
-            />
-        {/if}
+    <div class="relative aspect-[3/4] md:aspect-[4/5] lg:aspect-[1/1] xl:aspect-[4/5] w-full">
+        <ProgressiveImage 
+            src={place.image} 
+            alt={place.title} 
+            fallbackSrc={place.fallbackSrc}
+            className="group-hover:scale-110 transition-transform duration-1000"
+        >
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 transition-opacity duration-500 group-hover:opacity-90"></div>
+        </ProgressiveImage>
 
-        <!-- Gradient Overlays for contrast -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 transition-opacity duration-500 group-hover:opacity-90"></div>
-        
         <!-- Top Floating Badges -->
         <div class="absolute top-4 left-4 right-4 flex justify-between items-start z-10">
             <div class="flex flex-col gap-2">

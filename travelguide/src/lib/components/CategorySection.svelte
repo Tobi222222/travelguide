@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import type { Place } from '$lib/data/mockData';
     import PlaceCard from './PlaceCard.svelte';
     import { ArrowRight } from 'lucide-svelte';
@@ -29,7 +30,7 @@
                 <p class="text-slate-500 text-sm mt-1">{subtitle}</p>
             {/if}
         </div>
-        <a href="/explore" class="text-terracotta-600 font-medium text-sm flex items-center gap-1 hover:text-terracotta-700 transition-colors">
+        <a href="{base}/explore" class="text-terracotta-600 font-medium text-sm flex items-center gap-1 hover:text-terracotta-700 transition-colors">
             See all <ArrowRight size={16} />
         </a>
     </div>

@@ -1,5 +1,6 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
+    import { base } from '$app/paths';
     import { getUserState } from '$lib/state/userStore.svelte';
     import QuizQuestion from '$lib/components/QuizQuestion.svelte';
     import QuizProgress from '$lib/components/QuizProgress.svelte';
@@ -99,7 +100,7 @@
     }
 
     function finishQuiz() {
-        goto('/home');
+        goto(`${base}/home`);
     }
 </script>
 

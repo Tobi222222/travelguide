@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import { getUserState } from '$lib/state/userStore.svelte';
     import { mockPlaces } from '$lib/data/mockData';
     import PlaceCard from '$lib/components/PlaceCard.svelte';
@@ -27,7 +28,7 @@
                 <p class="text-slate-500 max-w-[200px] mx-auto">
                     Start exploring and tap the heart to save your favorite places here.
                 </p>
-                <a href="/explore" class="inline-block mt-6 px-6 py-2.5 bg-slate-800 text-white font-medium rounded-full hover:bg-slate-700 transition-colors">
+                <a href="{base}/explore" class="inline-block mt-6 px-6 py-2.5 bg-slate-800 text-white font-medium rounded-full hover:bg-slate-700 transition-colors">
                     Explore
                 </a>
             </div>

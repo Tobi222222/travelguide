@@ -1,20 +1,21 @@
 <script lang="ts">
     import { page } from '$app/state';
+    import { base } from '$app/paths';
     import { Map, Compass, Sparkles, Heart, User } from 'lucide-svelte';
 
     const navItems = [
-        { name: 'Home', path: '/home', Icon: Map },
-        { name: 'Explore', path: '/explore', Icon: Compass },
-        { name: 'Quiz', path: '/quiz', Icon: Sparkles },
-        { name: 'Saved', path: '/favorites', Icon: Heart },
-        { name: 'Profile', path: '/profile', Icon: User }
+        { name: 'Home', path: `${base}/home`, Icon: Map },
+        { name: 'Explore', path: `${base}/explore`, Icon: Compass },
+        { name: 'Quiz', path: `${base}/quiz`, Icon: Sparkles },
+        { name: 'Saved', path: `${base}/favorites`, Icon: Heart },
+        { name: 'Profile', path: `${base}/profile`, Icon: User }
     ];
 </script>
 
 <div class="fixed bottom-0 left-0 z-50 w-full bg-white/90 backdrop-blur-md border-t border-cream-200 pb-safe shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.05)] md:hidden">
     <div class="max-w-md mx-auto px-6 h-20 flex justify-between items-center">
         {#each navItems as item}
-            {@const isActive = page.url.pathname.startsWith(item.path)}
+            {@const isActive = page.url.pathname === item.path || (item.path !== `${base}/` && page.url.pathname.startsWith(item.path))}
             <a 
                 href={item.path}
                 class="flex flex-col items-center justify-center w-16 h-full gap-1 transition-all duration-300 relative group"

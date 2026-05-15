@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import type { Place } from '$lib/data/mockData';
     import ProgressiveImage from './ProgressiveImage.svelte';
     import FavoriteButton from './FavoriteButton.svelte';
@@ -13,7 +14,7 @@
     }>();
 </script>
 
-<a href="/place/{place.id}" class="group block relative w-full rounded-3xl bg-cream-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden active:scale-[0.98] transform-gpu">
+<a href="{base}/place/{place.id}" class="group block relative w-full rounded-3xl bg-cream-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden active:scale-[0.98] transform-gpu">
     <!-- Cinematic Image Area -->
     <div class="relative aspect-[3/4] md:aspect-[4/5] lg:aspect-[1/1] xl:aspect-[4/5] w-full">
         <ProgressiveImage 

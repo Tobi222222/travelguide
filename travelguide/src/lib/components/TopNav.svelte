@@ -1,14 +1,15 @@
 <script lang="ts">
     import { page } from '$app/state';
+    import { base } from '$app/paths';
     import { Compass, Map as MapIcon, Bookmark, User, Compass as LogoIcon } from 'lucide-svelte';
 
     const currentPath = $derived(page.url.pathname);
 
     const navItems = [
-        { path: '/', icon: Compass, label: 'Home' },
-        { path: '/explore', icon: MapIcon, label: 'Explore' },
-        { path: '/favorites', icon: Bookmark, label: 'Saved' },
-        { path: '/profile', icon: User, label: 'Profile' }
+        { path: `${base}/home`, icon: Compass, label: 'Home' },
+        { path: `${base}/explore`, icon: MapIcon, label: 'Explore' },
+        { path: `${base}/favorites`, icon: Bookmark, label: 'Saved' },
+        { path: `${base}/profile`, icon: User, label: 'Profile' }
     ];
 </script>
 
@@ -16,7 +17,7 @@
     <div class="max-w-7xl mx-auto w-full px-6 lg:px-12 h-20 flex items-center justify-between">
         
         <!-- Logo -->
-        <a href="/" class="flex items-center gap-2 text-terracotta-600 hover:opacity-80 transition-opacity">
+        <a href="{base}/" class="flex items-center gap-2 text-terracotta-600 hover:opacity-80 transition-opacity">
             <div class="bg-terracotta-100 p-2 rounded-xl">
                 <LogoIcon size={24} strokeWidth={2.5} />
             </div>
@@ -38,7 +39,7 @@
         <!-- Right CTA -->
         <div>
             <a 
-                href="/quiz"
+                href="{base}/quiz"
                 class="px-6 py-2.5 bg-terracotta-600 hover:bg-terracotta-700 text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform active:scale-95"
             >
                 Take the Quiz

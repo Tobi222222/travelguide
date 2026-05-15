@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import { fade, fly } from 'svelte/transition';
 </script>
 
@@ -25,7 +26,7 @@
         </p>
 
         <a 
-            href="/quiz"
+            href="{base}/quiz"
             class="group relative inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-300 bg-terracotta-500 rounded-full hover:bg-terracotta-600 active:scale-95 shadow-xl hover:shadow-2xl overflow-hidden w-full max-w-[280px]"
         >
             <span class="relative z-10 flex items-center gap-2 text-lg">

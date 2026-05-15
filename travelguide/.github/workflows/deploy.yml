@@ -12,6 +12,9 @@ permissions:
 jobs:
   build_site:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: travelguide
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,6 +29,7 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
+          cache-dependency-path: travelguide/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install
@@ -37,7 +41,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # this should match the `pages` option in your adapter-static config
-          path: 'build/'
+          path: 'travelguide/build/'
 
   deploy:
     needs: build_site

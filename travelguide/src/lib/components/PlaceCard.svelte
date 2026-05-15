@@ -63,13 +63,22 @@
                 {place.title}
             </h3>
 
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-2">
-                {#each place.tags.slice(0, 3) as tag}
-                    <span class="px-3 py-1 bg-white/20 backdrop-blur-md text-white border border-white/10 text-xs rounded-xl font-medium shadow-sm transition-colors group-hover:bg-white/30">
-                        {tag}
+            <!-- High Utility Tags -->
+            <div class="flex flex-wrap gap-2 mt-auto">
+                {#if place.localScore >= 9.5}
+                    <span class="px-3 py-1 bg-terracotta-500/90 backdrop-blur-md text-white border border-terracotta-400/30 text-xs rounded-xl font-bold shadow-md transition-colors group-hover:bg-terracotta-500">
+                        Top Rated
                     </span>
-                {/each}
+                {/if}
+                {#if place.vibeTags.includes('Local lifestyle')}
+                    <span class="px-3 py-1 bg-emerald-500/90 backdrop-blur-md text-white border border-emerald-400/30 text-xs rounded-xl font-bold shadow-md transition-colors group-hover:bg-emerald-500">
+                        Local Favorite
+                    </span>
+                {:else}
+                    <span class="px-3 py-1 bg-white/20 backdrop-blur-md text-white border border-white/20 text-xs rounded-xl font-medium shadow-sm transition-colors group-hover:bg-white/30">
+                        {place.tags[0]}
+                    </span>
+                {/if}
             </div>
         </div>
     </div>

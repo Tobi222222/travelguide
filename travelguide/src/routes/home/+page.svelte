@@ -43,18 +43,18 @@
     <header class="relative h-[65vh] md:h-[60vh] lg:h-[70vh] max-h-[800px] w-full overflow-hidden rounded-b-[2.5rem] shadow-xl">
         <!-- Background Image based on time or profile. Using a verified stunning aerial of Barcelona -->
         <ProgressiveImage 
-            src="https://images.unsplash.com/photo-1583422409516-15eba5336080?auto=format&fit=crop&q=80&w=2400&h=1600" 
+            src="https://images.unsplash.com/photo-1579282240050-352f15ac5f11?auto=format&fit=crop&q=80&w=2400&h=1600" 
             alt="Barcelona Aerial" 
-            fallbackSrc="https://images.unsplash.com/photo-1523531294919-4bcd76189c9c?auto=format&fit=crop&q=80&w=2400"
+            fallbackSrc="https://images.unsplash.com/photo-1579282240050-352f15ac5f11?auto=format&fit=crop&q=10&w=400"
             priority={true}
             aspectRatio="h-full"
             className="absolute inset-0 w-full h-full transform scale-105 animate-[slowPan_20s_ease-in-out_infinite_alternate]"
         >
-            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-navy-900/90"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/20 to-slate-900/95"></div>
         </ProgressiveImage>
         
         <!-- Hero Content -->
-        <div class="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 lg:p-12 max-w-7xl mx-auto w-full">
+        <div class="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 lg:p-12 max-w-7xl mx-auto w-full z-10">
             <div in:slide={{axis: 'y', duration: 800, delay: 200}}>
                 <div class="flex items-center gap-2 mb-3">
                     <MapPin size={16} class="text-terracotta-400" />

@@ -28,7 +28,7 @@
 
     <!-- The pt-20 handles the fixed TopNav on desktop. On mobile TopNav is hidden so it doesn't matter much (or we adjust conditionally if needed, but since mobile doesn't have top nav, we'll handle padding on pages) -->
     <div class="w-full flex-1 relative flex flex-col {showNav ? 'md:pt-20' : ''}">
-        <main class="flex-1 w-full pb-24 md:pb-0 relative z-10">
+        <main class="flex-1 w-full {showNav ? 'pb-24' : ''} md:pb-0 relative z-10">
             {@render children()}
         </main>
         

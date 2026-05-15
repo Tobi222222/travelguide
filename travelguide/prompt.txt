@@ -1,0 +1,31 @@
+<USER_REQUEST>
+You are working on my SvelteKit travel app project inside the folder:
+
+travelguide/
+
+IMPORTANT:
+- Keep the existing modern premium design language
+- Do NOT redesign the whole app
+- Improve UX, structure, consistency and visual quality
+- Make everything feel “fixed”, stable and polished like a real premium app
+- Focus heavily on spacing, responsiveness, image handling, overflow issues and clean layout behavior
+- Use Unsplash images where needed
+- Never leave empty placeholders or missing images
+- Avoid duplicated images whenever possible
+
+========================================
+1. GLOBAL LAYOUT / SCROLL FIXES
+========================================
+
+The app currently feels unstable because some pages can slightly scroll vertically even when they should fit perfectly.
+
+Fix this globally:
+- Prevent unwanted vertical scrolling
+- No tiny overflow
+- No accidental white space
+- No horizontal scrolling
+- Use proper viewport height handling
+- Ensure sections fit perfectly on screen
+
+Landing page:
+<truncated 6178 bytes>

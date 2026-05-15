@@ -3,7 +3,7 @@
     import { fade, fly } from 'svelte/transition';
 </script>
 
-<div class="relative min-h-screen w-full flex flex-col items-center justify-end overflow-hidden pb-12 px-6">
+<div class="relative h-[100dvh] w-full flex flex-col items-center justify-end overflow-hidden pb-16 px-6">
     <!-- Hero Image Background -->
     <div class="absolute inset-0 z-0">
         <img 
@@ -21,7 +21,7 @@
         <h1 class="font-display text-5xl sm:text-6xl font-bold text-white mb-4 leading-tight">
             Barcelona <br/> <span class="font-serif italic font-light">Travel Guide</span>
         </h1>
-        <p class="text-cream-100 text-lg sm:text-xl font-light mb-12 max-w-[280px]">
+        <p class="text-cream-100 text-lg sm:text-xl font-light mb-10 max-w-[280px]">
             Discover the Mediterranean magic, tailored exactly to your vibe.
         </p>
 

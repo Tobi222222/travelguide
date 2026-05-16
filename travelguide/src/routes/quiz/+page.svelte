@@ -104,7 +104,7 @@
     }
 </script>
 
-<div class="h-[100dvh] bg-cream-50 flex flex-col pt-4 sm:pt-8 pb-24 overflow-hidden">
+<div class="min-h-[100dvh] bg-cream-50 flex flex-col pt-4 sm:pt-8 pb-40">
     {#if !showResult}
         <div class="px-4 max-w-2xl mx-auto w-full mb-8 relative z-20">
             <div class="flex items-center justify-between mb-4">

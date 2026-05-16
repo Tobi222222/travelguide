@@ -61,20 +61,20 @@
     {/if}
 
     {#if status === 'error'}
-        <div class="absolute inset-0 bg-gradient-to-br from-terracotta-100 to-cream-200 flex items-center justify-center p-4 text-center">
-            <span class="text-xs font-medium text-terracotta-700/50 uppercase tracking-wider">{alt}</span>
+        <div class="absolute inset-0 bg-slate-900 flex items-center justify-center p-4 text-center">
+            <span class="text-xs font-medium text-slate-500 uppercase tracking-wider">{alt}</span>
         </div>
-    {:else}
-        <img
-            src={currentSrc}
-            {alt}
-            class="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out 
-                   {status === 'loaded' || status === 'fallback' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}"
-            loading={priority ? 'eager' : 'lazy'}
-            onload={handleLoad}
-            onerror={handleError}
-        />
     {/if}
+    
+    <img
+        src={currentSrc}
+        {alt}
+        class="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out 
+               {status === 'loading' ? 'opacity-0 scale-105' : 'opacity-100 scale-100'}"
+        loading={priority ? 'eager' : 'lazy'}
+        onload={handleLoad}
+        onerror={handleError}
+    />
     
     <!-- Render children snippet if provided -->
     {#if children}

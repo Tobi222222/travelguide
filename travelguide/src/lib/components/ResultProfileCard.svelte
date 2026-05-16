@@ -11,50 +11,50 @@
             desc: 'You travel through your taste buds. From tapas bars to Michelin-starred kitchens, every meal is an adventure.',
             icon: Utensils,
             color: 'text-orange-400',
-            heroImage: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1600&h=1200',
-            fallback: 'https://images.unsplash.com/photo-1515443961218-a51367888e4b?w=1600'
+            heroImage: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=1600&h=1200',
+            fallback: 'https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&q=80&w=1600&h=1200'
         },
         'Hidden Gem Hunter': {
             desc: 'You love finding places tourists never see. Secret courtyards, local bars, and hidden viewpoints are your thing.',
             icon: Compass,
             color: 'text-emerald-400',
-            heroImage: 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&q=80&w=1600&h=1200',
-            fallback: 'https://images.unsplash.com/photo-1583422409516-15eba5336080?w=1600'
+            heroImage: 'https://images.unsplash.com/photo-1549449830-ecb8b3b3ba98?auto=format&fit=crop&q=80&w=1600&h=1200',
+            fallback: 'https://images.unsplash.com/photo-1583422409516-15eba5336080?auto=format&fit=crop&q=80&w=1600&h=1200'
         },
         'Luxury Traveler': {
             desc: 'Premium experiences and exquisite comfort define your journey. Rooftop pools, fine dining, and five-star elegance.',
             icon: Crown,
             color: 'text-amber-400',
-            heroImage: 'https://images.unsplash.com/photo-1564227506-69eb858a7da0?auto=format&fit=crop&q=80&w=1600&h=1200',
-            fallback: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1600'
+            heroImage: 'https://images.unsplash.com/photo-1534008897995-27a23e859048?auto=format&fit=crop&q=80&w=1600&h=1200',
+            fallback: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1600&h=1200'
         },
         'Beach Lover': {
             desc: 'Sun, sand, and the sound of Mediterranean waves are all you need. Golden hour is your favorite time.',
             icon: Waves,
             color: 'text-sky-400',
             heroImage: 'https://images.unsplash.com/photo-1518335440626-4ee8fb827376?auto=format&fit=crop&q=80&w=1600&h=1200',
-            fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600'
+            fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1600&h=1200'
         },
         'Party Traveler': {
             desc: 'Barcelona after dark is your playground. Beach clubs, speakeasies, and rooftop DJs fuel your energy.',
             icon: PartyPopper,
             color: 'text-purple-400',
             heroImage: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1600&h=1200',
-            fallback: 'https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=1600'
+            fallback: 'https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&q=80&w=1600&h=1200'
         },
         'Local Lifestyle Explorer': {
             desc: 'You want to live like a true Barceloní. Morning coffee at the corner café, afternoon vermut, and evening paseo.',
             icon: Coffee,
             color: 'text-terracotta-400',
-            heroImage: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=1600&h=1200',
-            fallback: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1600'
+            heroImage: 'https://images.unsplash.com/photo-1527030280862-64139fba04ca?auto=format&fit=crop&q=80&w=1600&h=1200',
+            fallback: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=1600&h=1200'
         },
         'Culture Lover': {
             desc: 'History, art, and architecture are your guiding lights. Every street in Barcelona tells a story you want to hear.',
             icon: Compass,
             color: 'text-indigo-400',
-            heroImage: 'https://images.unsplash.com/photo-1523531294919-4bab31ecd8cc?auto=format&fit=crop&q=80&w=1600&h=1200',
-            fallback: 'https://images.unsplash.com/photo-1523531294919-4bcd76189c9c?w=1600'
+            heroImage: 'https://images.unsplash.com/photo-1583422409516-15eba5336080?auto=format&fit=crop&q=80&w=1600&h=1200',
+            fallback: 'https://images.unsplash.com/photo-1523531294919-4bcd76189c9c?auto=format&fit=crop&q=80&w=1600&h=1200'
         },
     };
 

@@ -55,9 +55,9 @@
     });
 </script>
 
-<div class="relative overflow-hidden {aspectRatio} {className} bg-slate-100">
+<div class="relative overflow-hidden {aspectRatio} {className} bg-slate-900">
     {#if status === 'loading'}
-        <div class="absolute inset-0 animate-pulse bg-gradient-to-tr from-cream-200 to-cream-100"></div>
+        <div class="absolute inset-0 animate-pulse bg-gradient-to-br from-slate-900 to-slate-800"></div>
     {/if}
 
     {#if status === 'error'}

@@ -70,14 +70,15 @@ const _rawPlaces: Place[] = [
         category: 'attraction', image: getImageUrl('1614088820490-e37456bc99eb'), fallbackSrc: getFallback('attraction'),
         tags: ['Architecture', 'Museum'], localScore: 9.5, priceLevel: '$$$', district: 'Eixample',
         vibeTags: ['Cultural', 'Elegant'], coordinates: { lat: 41.3917, lng: 2.1649 }, recommendationTags: ['Culture Lover', 'Luxury Traveler'],
-        bestVisitingHours: '10:00 - 12:00', isQuietNow: false, trending: true, localTip: 'Get the premium audio guide, it uses AR.'
+        bestVisitingHours: '10:00 - 12:00', isQuietNow: false, trending: true, editorialCollection: 'Masterpieces',
+        localTip: 'Get the premium audio guide, it uses AR.'
     },
     {
-        id: 'a4', title: 'Gothic Quarter (Barri Gòtic)',
+        id: 'a4', title: 'Gothic Quarter',
         description: 'Lose yourself in the labyrinthine streets of the old city, full of hidden squares and trendy bars.',
-        category: 'attraction', image: getImageUrl('1605342410884-21f456fb4890'), fallbackSrc: getFallback('attraction'),
+        category: 'attraction', image: getImageUrl('1527030280862-64139fba04ca'), fallbackSrc: getFallback('attraction'),
         tags: ['History', 'Walking', 'Shopping'], localScore: 9.6, priceLevel: '$', district: 'Ciutat Vella',
-        vibeTags: ['Energetic', 'Mysterious'], coordinates: { lat: 41.3828, lng: 2.1769 }, recommendationTags: ['Local Lifestyle Explorer'],
+        vibeTags: ['Energetic', 'Mysterious', 'Local lifestyle'], coordinates: { lat: 41.3828, lng: 2.1769 }, recommendationTags: ['Local Lifestyle Explorer'],
         bestVisitingHours: '19:00 - 22:00', isQuietNow: false, trending: true, editorialCollection: 'Local Favorites', localTip: 'Wander aimlessly without a map.'
     },
     {
@@ -144,7 +145,7 @@ const _rawPlaces: Place[] = [
         category: 'restaurant', image: getImageUrl('1525648199074-cee30ba79a4a'), fallbackSrc: getFallback('restaurant'),
         tags: ['Tapas', 'Seafood', 'Authentic'], localScore: 9.6, priceLevel: '$$$', district: 'Raval',
         vibeTags: ['Energetic', 'Local lifestyle'], coordinates: { lat: 41.3787, lng: 2.1739 }, recommendationTags: ['Foodie Explorer'],
-        bestVisitingHours: '13:30 - 15:30', isQuietNow: false, trending: true, localTip: 'Sit at the bar to watch the chefs work their magic.'
+        bestVisitingHours: '13:30 - 15:30', isQuietNow: false, trending: true, editorialCollection: 'Best Tapas', localTip: 'Sit at the bar to watch the chefs work their magic.'
     },
     {
         id: 'r3', title: 'Gala',
@@ -152,15 +153,15 @@ const _rawPlaces: Place[] = [
         category: 'restaurant', image: getImageUrl('1550966871-3ed3cdb5ed0c'), fallbackSrc: getFallback('restaurant'),
         tags: ['Aesthetic', 'Mediterranean', 'Trendy'], localScore: 9.1, priceLevel: '$$$', district: 'Eixample',
         vibeTags: ['Aesthetic', 'Social', 'Luxury'], coordinates: { lat: 41.3931, lng: 2.1554 }, recommendationTags: ['Luxury Traveler', 'Party Traveler'],
-        bestVisitingHours: '21:00 - 00:00', isQuietNow: false, trending: true, editorialCollection: 'Instagrammable Spots', localTip: 'Dress to impress here.'
+        bestVisitingHours: '21:00 - 00:00', isQuietNow: false, trending: true, editorialCollection: 'Vibrant Spaces', localTip: 'Dress to impress here.'
     },
     {
         id: 'r4', title: 'La Pepita',
         description: 'A lively, graffiti-covered tapas bar in Gràcia serving inventive small plates. Always buzzing.',
         category: 'restaurant', image: getImageUrl('1555396273-367ea4eb4db5'), fallbackSrc: getFallback('restaurant'),
         tags: ['Tapas', 'Modern', 'Bustling'], localScore: 9.4, priceLevel: '$$', district: 'Gràcia',
-        vibeTags: ['Social', 'Energetic'], coordinates: { lat: 41.3985, lng: 2.1595 }, recommendationTags: ['Foodie Explorer'],
-        bestVisitingHours: '19:30 - 22:30', isQuietNow: false, trending: false, localTip: 'Try the smoked eggplant fritters.'
+        vibeTags: ['Social', 'Energetic', 'Local lifestyle'], coordinates: { lat: 41.3985, lng: 2.1595 }, recommendationTags: ['Foodie Explorer'],
+        bestVisitingHours: '19:30 - 22:30', isQuietNow: false, trending: false, editorialCollection: 'Local Favorites', localTip: 'Try the smoked eggplant fritters.'
     },
     {
         id: 'r5', title: 'Disfrutar',

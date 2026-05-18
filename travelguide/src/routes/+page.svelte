@@ -6,11 +6,6 @@
 <div class="relative h-[100dvh] w-full flex flex-col items-center justify-end overflow-hidden pb-16 px-6">
     <!-- Hero Image Background -->
     <div class="absolute inset-0 z-0">
-        <img 
-            src="https://images.unsplash.com/photo-1583422409516-15eba5336080?auto=format&fit=crop&q=80&w=1200" 
-            alt="Barcelona" 
-            class="w-full h-full object-cover"
-        />
         <!-- Gradient Overlay -->
         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
     </div>
